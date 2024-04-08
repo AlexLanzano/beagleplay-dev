@@ -12,6 +12,7 @@ ti/
 u-boot/
 
 apps/hello/hello
+apps/drmtest/drmtest
 
 *.o
 *.ko

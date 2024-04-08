@@ -34,6 +34,9 @@ busybox:
 	git clone https://git.busybox.net/busybox
 	cd busybox; git checkout 1_36_stable
 
+drm:
+	git clone https://gitlab.freedesktop.org/mesa/drm.git
+
 
 .PHONY: build-u-boot-r5
 build-u-boot-r5:
@@ -74,12 +77,26 @@ build-app-hello: apps/hello/hello.c
 	~/x-tools/aarch64-unknown-linux-gnu/bin/aarch64-unknown-linux-gnu-gcc apps/hello/hello.c -o apps/hello/hello
 	cp apps/hello/hello /mnt/psf/nfsroot/usr/bin
 
+.PHONY: build-app-drmtest
+build-app-drmtest: apps/drmtest/drmtest.c
+	~/x-tools/aarch64-unknown-linux-gnu/bin/aarch64-unknown-linux-gnu-gcc -L/mnt/psf/nfsroot/lib -I/mnt/psf/nfsroot/include/libdrm apps/drmtest/drmtest.c -ldrm -o apps/drmtest/drmtest
+	cp apps/drmtest/drmtest /mnt/psf/nfsroot/usr/bin
+
 .PHONY: build-busybox
 build-busybox:
 	cd busybox; \
 	cp ../configs/busybox_beagleplay_defconfig configs/beagleplay_defconfig; \
 	make beagleplay_defconfig; \
 	make -j8 install
+
+.PHONY: build-drm
+build-drm:
+	cd drm; \
+	cp ../configs/drm-cross-config.txt .; \
+	meson setup builddir --cross-file drm-cross-config.txt --prefix=/mnt/psf/nfsroot/; \
+	sudo ninja -C builddir/ install
+	sudo mv /mnt/psf/nfsroot/include/xf86drm.h /mnt/psf/nfsroot/include/xf86drmMode.h /mnt/psf/nfsroot/include/libdrm 
+
 
 .PHONY: build-modules
 build-modules:
@@ -89,6 +106,8 @@ build-modules:
 	cd kernel-modules/sharp-display; \
 	make all
 	sudo cp kernel-modules/sharp-display/sharp-display.ko /mnt/psf/nfsroot/home/alex
+
+ 
 
 .PHONY: update-sdcard
 update-sdcard:
