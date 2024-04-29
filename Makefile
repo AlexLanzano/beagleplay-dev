@@ -106,6 +106,9 @@ build-modules:
 	cd kernel-modules/sharp-display; \
 	make all
 	sudo cp kernel-modules/sharp-display/sharp-display.ko /mnt/psf/nfsroot/home/alex
+	cd kernel-modules/bmi270; \
+	make all
+	sudo cp kernel-modules/bmi270/bmi270.ko /mnt/psf/nfsroot/home/alex
 
  
 
