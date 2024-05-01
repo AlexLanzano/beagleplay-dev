@@ -8,3 +8,10 @@
         com-gpios = <&main_gpio1 11 GPIO_ACTIVE_HIGH>;
     };
 };   
+
+&mcu_i2c0 {
+    bmu270@68 {
+        compatible = "bosch,bmi270";        
+        reg = <0x68>;
+    };
+};

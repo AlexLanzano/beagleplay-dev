@@ -68,6 +68,7 @@ build-u-boot-a53:
 build-linux:
 	cd linux; \
 	cp ../configs/custom_defconfig arch/arm64/configs; \
+	cp ../configs/custom-beagleplay.dts arch/arm64/boot/dts/ti; \
 	make CC=clang ARCH=arm64 custom_defconfig; \
 	make CC=clang -j8 ARCH=arm64 CROSS_COMPILE=/home/alex/x-tools/aarch64-unknown-linux-gnu/bin/aarch64-unknown-linux-gnu-; \
 	cp arch/arm64/boot/Image ../tftp
