@@ -83,6 +83,11 @@ build-app-drmtest: apps/drmtest/drmtest.c
 	~/x-tools/aarch64-unknown-linux-gnu/bin/aarch64-unknown-linux-gnu-gcc -L/mnt/psf/nfsroot/lib -I/mnt/psf/nfsroot/include/libdrm apps/drmtest/drmtest.c -ldrm -o apps/drmtest/drmtest
 	cp apps/drmtest/drmtest /mnt/psf/nfsroot/usr/bin
 
+.PHONY: build-app-pong
+build-app-pong: apps/pong/main.c apps/pong/game.c apps/pong/renderer.c
+	~/x-tools/aarch64-unknown-linux-gnu/bin/aarch64-unknown-linux-gnu-gcc -L/mnt/psf/nfsroot/lib -I/mnt/psf/nfsroot/include/libdrm -ldrm $^ -o apps/pong/pong
+	cp apps/pong/pong /mnt/psf/nfsroot/usr/bin
+
 .PHONY: build-busybox
 build-busybox:
 	cd busybox; \
