@@ -4,7 +4,6 @@
 #include "linux/iio/types.h"
 #include "linux/kern_levels.h"
 #include "linux/printk.h"
-#include "linux/types.h"
 #include <linux/i2c.h>
 #include <linux/iio/iio.h>
 #include <linux/module.h>
