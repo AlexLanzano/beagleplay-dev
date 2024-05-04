@@ -487,11 +487,8 @@ static int bmi270_get_data(struct bmi270_device *bmi270_device,
             reg = 0x12 + (axis - IIO_MOD_X) * sizeof(sample);
             break;
     }
-    printk(KERN_INFO "reg %x\n", reg);
     regmap_bulk_read(bmi270_device->regmap, reg, &sample, sizeof(sample));
-    printk(KERN_INFO "sample %x\n", sample);
     *val = sign_extend32(le16_to_cpu(sample), 15);
-    printk(KERN_INFO "val %x\n",*val);
     return 0;
 }
 
@@ -499,7 +496,6 @@ static int bmi270_read_raw(struct iio_dev *indio_dev,
                            struct iio_chan_spec const *chan,
                            int *val, int *val2, long mask)
 {
-    printk(KERN_INFO "READ RAW\n");
     struct bmi270_device *bmi270_device = iio_priv(indio_dev);
     switch (mask) {
         case IIO_CHAN_INFO_RAW:

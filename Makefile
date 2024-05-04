@@ -88,6 +88,11 @@ build-app-pong: apps/pong/main.c apps/pong/game.c apps/pong/renderer.c
 	~/x-tools/aarch64-unknown-linux-gnu/bin/aarch64-unknown-linux-gnu-gcc -L/mnt/psf/nfsroot/lib -I/mnt/psf/nfsroot/include/libdrm -ldrm $^ -o apps/pong/pong
 	cp apps/pong/pong /mnt/psf/nfsroot/usr/bin
 
+.PHONY: build-app-iiotest
+build-app-iiotest: apps/iiotest/main.c
+	~/x-tools/aarch64-unknown-linux-gnu/bin/aarch64-unknown-linux-gnu-gcc -L/mnt/psf/nfsroot/lib $^ -o apps/iiotest/iiotest
+	cp apps/iiotest/iiotest /mnt/psf/nfsroot/usr/bin
+
 .PHONY: build-busybox
 build-busybox:
 	cd busybox; \
