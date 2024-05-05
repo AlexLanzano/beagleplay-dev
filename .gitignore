@@ -13,6 +13,8 @@ u-boot/
 
 apps/hello/hello
 apps/drmtest/drmtest
+apps/iiotest/iiotest
+apps/pong/pong
 
 *.o
 *.ko
