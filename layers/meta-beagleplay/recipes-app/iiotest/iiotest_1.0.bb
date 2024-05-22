@@ -11,6 +11,9 @@ do_compile() {
 	${CC} ${LDFLAGS} iiotest.c -o iiotest
 }
 
+FILES:${PN} += "${bindir}"
+FILES:${PN} += "${bindir}/iiotest"
+
 do_install() {
 	install -d ${D}${bindir}
 	install -m 0755 iiotest ${D}${bindir}

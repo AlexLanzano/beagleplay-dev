@@ -1,4 +1,4 @@
-obj-m := hello.o
+obj-m := sharp.o
 
 SRC := $(shell pwd)
 

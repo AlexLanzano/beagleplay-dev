@@ -1,0 +1,12 @@
+diff --git a/arch/arm64/boot/dts/ti/k3-am625-beagleplay.dts b/arch/arm64/boot/dts/ti/k3-am625-beagleplay.dts
+index 9a6bd0a3c94f..07652f5654f2 100644
+--- a/arch/arm64/boot/dts/ti/k3-am625-beagleplay.dts
++++ b/arch/arm64/boot/dts/ti/k3-am625-beagleplay.dts
+@@ -12,6 +12,7 @@
+ #include <dt-bindings/gpio/gpio.h>
+ #include <dt-bindings/input/input.h>
+ #include "k3-am625.dtsi"
++#include "k3-am625-beagleplay-dev.dtsi"
+ 
+ / {
+ 	compatible = "beagle,am625-beagleplay", "ti,am625";

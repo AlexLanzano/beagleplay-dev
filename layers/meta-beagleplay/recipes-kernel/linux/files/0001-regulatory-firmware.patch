@@ -1,0 +1,8 @@
+diff --git a/firmware/regulatory.db b/firmware/regulatory.db
+new file mode 100644
+index 000000000000..ebdc7e354e9c
+Binary files /dev/null and b/firmware/regulatory.db differ
+diff --git a/firmware/regulatory.db.p7s b/firmware/regulatory.db.p7s
+new file mode 100644
+index 000000000000..9cf3244287f4
+Binary files /dev/null and b/firmware/regulatory.db.p7s differ

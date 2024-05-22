@@ -15,14 +15,21 @@ build:
 update-sdcard:
 	mkdir -p tmp-rootfs
 	sudo mount $(DEV)1 tmp-rootfs
-	sudo cp deploy-ti/images/beagleplay/tiboot3.bin deploy-ti/images/beagleplay/tispl.bin deploy-ti/images/beagleplay/u-boot.img deploy-ti/images/beagleplay/Image deploy-ti/images/beagleplay/k3-am625-beagleplay.dtb tmp-rootfs
+	sudo cp deploy-ti/images/beagleplay-dev/tiboot3.bin deploy-ti/images/beagleplay-dev/tispl.bin deploy-ti/images/beagleplay-dev/u-boot.img deploy-ti/images/beagleplay-dev/Image deploy-ti/images/beagleplay-dev/k3-am625-beagleplay.dtb tmp-rootfs
 	sync
 	sudo umount tmp-rootfs
 	
 	sudo mount $(DEV)2 tmp-rootfs
-	sudo cp deploy-ti/images/beagleplay/core-image-minimal-beagleplay.rootfs.tar.xz tmp-rootfs
+	sudo cp deploy-ti/images/beagleplay-dev/core-image-minimal-beagleplay-dev.rootfs.tar.xz tmp-rootfs
 	cd tmp-rootfs; \
-		sudo tar -xf core-image-minimal-beagleplay.rootfs.tar.xz
+		sudo tar -xf core-image-minimal-beagleplay-dev.rootfs.tar.xz
 	sync
 	sudo umount tmp-rootfs
 	rm -rf tmp-rootfs
+
+.PHONY: update-nfsroot
+update-nfsroot:
+	-tar -xf deploy-ti/images/beagleplay-dev/core-image-minimal-beagleplay-dev.rootfs.tar.xz -C $(NFSROOT)
+	-chmod a+w -R $(NFSROOT)
+	-chmod a+r -R $(NFSROOT)
+	-chmod a+X -R $(NFSROOT)
