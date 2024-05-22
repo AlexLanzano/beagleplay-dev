@@ -6,7 +6,7 @@ upon the existing layers.
 ## How to build
 First clone the project and all its submodules by doing the following:
 ```
-git clone https://github.com/AlexLanzano/beagleplay-dev --recurse-submodules
+git clone https://github.com/AlexLanzano/beagleplay-dev.git --recurse-submodules
 ```
 
 Now you can kick off the build by doing:
