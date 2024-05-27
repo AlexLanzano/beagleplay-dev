@@ -1,2 +1,0 @@
-bootargs=root=/dev/mmcblk1p2 rwbootcmd=fatload mmc 1:1 0x80000000 Image; fatload mmc 1:1 0x92000000 k3-am625-beagleplay.dtb; booti 0x80000000 - 0x92000000
-bootcmd=fatload mmc 1:1 0x80000000 Image; fatload mmc 1:1 0x92000000 k3-am625-beagleplay.dtb; booti 0x80000000 - 0x92000000

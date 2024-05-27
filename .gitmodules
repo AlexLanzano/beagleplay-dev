@@ -10,3 +10,6 @@
 [submodule "layers/openembedded-core"]
 	path = layers/openembedded-core
 	url = git://git.openembedded.org/openembedded-core
+[submodule "layers/meta-beagleplay"]
+	path = layers/meta-beagleplay
+	url = git@github.com:AlexLanzano/meta-beagleplay.git
