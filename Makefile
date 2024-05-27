@@ -18,14 +18,9 @@ update-sdcard:
 	sudo cp deploy-ti/images/beagleplay-dev/tiboot3.bin deploy-ti/images/beagleplay-dev/tispl.bin deploy-ti/images/beagleplay-dev/u-boot.img deploy-ti/images/beagleplay-dev/Image deploy-ti/images/beagleplay-dev/k3-am625-beagleplay.dtb tmp-rootfs
 	sync
 	sudo umount tmp-rootfs
-	
-	sudo mount $(DEV)2 tmp-rootfs
-	sudo cp deploy-ti/images/beagleplay-dev/core-image-minimal-beagleplay-dev.rootfs.tar.xz tmp-rootfs
-	cd tmp-rootfs; \
-		sudo tar -xf core-image-minimal-beagleplay-dev.rootfs.tar.xz
-	sync
-	sudo umount tmp-rootfs
 	rm -rf tmp-rootfs
+	sudo dd if=deploy-ti/images/beagleplay-dev/core-image-minimal-beagleplay-dev.rootfs.ext4 of=$(DEV)2 bs=1M
+	sync
 
 .PHONY: update-nfsroot
 update-nfsroot:
