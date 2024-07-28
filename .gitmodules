@@ -13,3 +13,7 @@
 [submodule "layers/meta-beagleplay"]
 	path = layers/meta-beagleplay
 	url = git@github.com:AlexLanzano/meta-beagleplay.git
+[submodule "layers/meta-openembedded"]
+	path = layers/meta-openembedded
+	url = git://git.openembedded.org/meta-openembedded
+	branch = scarthgap
