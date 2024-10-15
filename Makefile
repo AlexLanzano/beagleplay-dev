@@ -1,3 +1,5 @@
+all: build
+
 .PHONY: build
 build:
 	bitbake core-image-minimal
