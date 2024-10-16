@@ -10,10 +10,13 @@ bitbake-cookerdaemon.log
 cache/
 conf/conf-notes.txt
 conf/conf-summary.txt
+conf/devtool.conf
+conf/templateconf.cfg
 deploy-ti/
 downloads/
 sstate-cache/
 tmp-baremetal-k3r5/
 tmp-glibc/
 workspace/
-
+nfsroot/
+tftp/
